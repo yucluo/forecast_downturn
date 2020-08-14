@@ -1,0 +1,130 @@
+---
+title: "Corpus_Descriptives"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(ggplot2)
+library(readr)
+library(stringr)
+library(scales)
+library(data.table)
+
+```
+
+## Count Volumn of Results by Month
+```{r results}
+mydata = fread("meta_new.csv") #fread is faster
+
+# remove duplicates
+deduped.data <- distinct(mydata, Title, WordLength, .keep_all = TRUE) #based in title and word count
+
+# format the date
+deduped.data$Date = gsub("^(.*?)T.*", "\\1", deduped.data$Date) # delete hours
+deduped.data$Date = as.POSIXct(deduped.data$Date)
+
+ggplot(deduped.data, aes(x = Date)) + 
+    geom_histogram() +
+    theme_bw() + xlab(NULL) +
+    scale_x_datetime(breaks = date_breaks("1 months"),
+                    labels = date_format("%Y-%b"), 
+                     limits = c(as.POSIXct("2007-01-01"), 
+                                as.POSIXct("2009-12-31")) 
+                    ) + 
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+```
+
+
+## Count the Number of Words Over Time 
+
+```{r words, echo=FALSE}
+# setwd("/Users/yuchenluo/Desktop/forecast_downturn/txt") 
+# 
+# ## get rid of duplicates
+# # uniq_id = deduped.data$ResultId 
+# # files =  paste(uniq_id, "txt",sep = ".")
+# # all_files = list.files(path="/Users/yuchenluo/Desktop/forecast_downturn/txt",pattern = "*.txt")
+# # files_tbl = read.table(text = files) 
+# # all_files_tbl = read.table(text =all_files)
+# # deduped_file = inner_join(files_tbl, all_files_tbl)
+# 
+# ## get the zero counts
+# zero_wc_id = deduped.data[deduped.data$WordLength==0, "ResultId"]
+# #zero_wc_id = as.character(zero_wc_id)
+# zero_wc_fl =  unlist(lapply(zero_wc_id, function(x) paste(x,'.txt', sep = "")))
+# 
+# 
+# # some files do not exist in the txt folder
+# all_files = list.files(path="/Users/yuchenluo/Desktop/forecast_downturn/txt",pattern = "*.txt")
+# final_fl = intersect(zero_wc_fl, all_files)
+# 
+# # count (regex get rid of tags)
+# wd_ct = sapply(final_fl, function(x){
+#     t <- read_file(x) # load file
+#     lst <- str_extract_all(t, "<bodyText>\\s*(.*?)\\s*</bodyText>")
+#     str = paste(lst, collapse = " ") 
+#     str = gsub("<[^>]*?>", "",str) # delete string inside <>
+#     # [^>] means all characters except for >
+#     # *? nongreedy matching: match the shortest string
+#     # <> not special character donot need escape
+#     WordLen = sapply(strsplit(str, " "), length)
+# return(WordLen)
+# })
+# 
+# # get rid of ext to match ResultId
+# names = tools::file_path_sans_ext(names(wd_ct))
+# 
+# #prepare two data frames
+# setDT(mydata)
+# wd_ct = setDT(as.data.frame(wd_ct))
+# wd_ct$ResultId = names
+# 
+# #mydata[which(mydata$ResultId %in% names(wd_ct)), 'WordLength'] = wd_ct
+# 
+# # merge
+# newdata = left_join(mydata,wd_ct)
+# 
+# #change zero word length
+# newdata[!is.na(newdata$wd_ct), "WordLength" ] = newdata[!is.na(newdata$wd_ct), "wd_ct" ]
+# newdata$wd_ct = NULL
+# 
+# # write to file 
+# write.csv(newdata, file = "meta_new.csv")
+```
+
+
+```{r word count over time}
+ggplot(deduped.data,aes(x=Date, y=WordLength)) + geom_point(colour = "grey") +     
+    stat_summary(aes(y = WordLength,group=1, shape = "median"), fun.y=median, colour="red", size = 1, geom="smooth",group=1, show.legend = TRUE)   +      scale_shape_manual("", values=c("mean"="x")) +
+ coord_cartesian(ylim = c(0, 20000)) 
+
+```
+```{r words3}
+ggplot(deduped.data, aes(x = WordLength)) + 
+    geom_histogram(binwidth = 100) +
+    xlim(c(0, 2000))
+    # theme_bw() + xlab(NULL) +
+    #scale_x_datetime(limits = c(as.POSIXct("2007-01-01"), 
+      #                          as.POSIXct("2009-12-31")) ) 
+    # theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))```
+
+```
+
+## Zero Word Count Articles: Sources
+
+```{r WordCount - zero count sources}
+ggplot(data = deduped.data %>% filter(WordLength==0), aes(SourceName)) + 
+    geom_histogram(stat = 'count') +
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+```
+
+## Low Word Count Articles: Sources
+
+```{r WordCount - low count sources}
+ggplot(data = deduped.data %>% filter(WordLength<100 & WordLength!= 0), aes(SourceName)) + geom_histogram(stat = 'count') + theme(axis.ticks=element_blank(), axis.text.x = element_blank(), axis.title.x = element_blank()) + labs(y = "all sources", caption = "All low count sources")
+
+ggplot(data = deduped.data %>% filter(WordLength<100 & WordLength!= 0) %>% group_by(SourceName) %>% summarise(n = n()) %>% filter(n>100) , aes(x=SourceName, y = n) )+ geom_bar(stat = 'identity') + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +labs(y = "Count", caption = "Top 5 low word count sources")
+ 
+```
