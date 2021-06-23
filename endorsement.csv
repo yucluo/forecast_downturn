@@ -1,0 +1,302 @@
+,State,Obama,McCain
+0,MAGAZINES/NATIONAL,Black Enterprise  ,
+1,MAGAZINES/NATIONAL,The Economist  ,Investors Business Daily  
+2,MAGAZINES/NATIONAL,Esquire  ,
+3,MAGAZINES/NATIONAL,The New Republic  ,
+4,MAGAZINES/NATIONAL,The New Yorker  ,
+5,MAGAZINES/NATIONAL,Poder  ,
+6,MAGAZINES/NATIONAL,The Financial Times  ,
+7,MAGAZINES/NATIONAL,Indian Country Today  ,
+8,ALABAMA,Anniston Star,The Birmingham News  
+9,ALABAMA,Daily Home Talladega Pell City Sylacauga  ,Dothan Eagle  
+10,ALABAMA,Decatur Daily  ,The Gadsden Times
+11,ALABAMA,Florence Times Daily  ,Mobile PressRegister  
+12,ALABAMA,Montgomery Advertiser  ,OpelikaAuburn News  
+13,ALABAMA,Selma TimesJournal  ,
+14,ALABAMA,Tuscaloosa News  ,
+15,ALASKA,Anchorage Daily News  ,Juneau Empire  
+16,ARIZONA,Arizona Daily Star Tucson  ,Arizona Republic Phoenix  
+17,ARIZONA,,Casa Grande Dispatch
+18,ARIZONA,,Daily Courier Prescott  
+19,ARKANSAS,Benton County Daily Record  ,Arkansas DemocratGazette Little Rock   
+20,ARKANSAS,,Southwest TimesRecord Fort Smith  
+21,CALIFORNIA,Contra Costa Times Bay Area News Group    ,Bakersfield Californian  
+22,CALIFORNIA,Fresno Bee  ,Chico Enterprise Record
+23,CALIFORNIA,LA Daily News Woodland Hills  ,Desert Sun Palm Springs  
+24,CALIFORNIA,Los Angeles Times  ,Eureka Reporter
+25,CALIFORNIA,La Opinión Los Angeles  ,Napa Valley Register  
+26,CALIFORNIA,Monterey County Herald  ,North County Times Escondido
+27,CALIFORNIA,Pasadena StarNews  ,PressEnterprise Riverside   
+28,CALIFORNIA,Sacramento Bee  ,Ridgecrest Daily Independent
+29,CALIFORNIA,San Francisco Chronicle  ,San Diego UnionTribune  
+30,CALIFORNIA,San Jose Mercury News  ,San Francisco Examiner  
+31,CALIFORNIA,Santa Cruz Journal  ,Vallejo Times Herald
+32,CALIFORNIA,The Record Stockton  ,
+33,CALIFORNIA,Today   ,
+34,COLORADO,Aspen Daily News  ,Daily Sentinel Grand Junction  
+35,COLORADO,Daily Camera Boulder  ,Longmont TimesCall   
+36,COLORADO,Cortez Journal  ,Pueblo Chieftain  
+37,COLORADO,Denver Post  ,
+38,COLORADO,Durango Herald  ,
+39,COLORADO,Coloradoan Fort Collins  ,
+40,COLORADO,Vail Daily  ,
+41,CONNECTICUT,The Day New London,Connecticut Post
+42,CONNECTICUT,Hartford Courant  ,Greenwich Time
+43,CONNECTICUT,New Haven Register  ,Stamford Advocate
+44,CONNECTICUT,Norwich Bulletin,Torrington RegisterCitizen
+45,DELAWARE,News Journal  ,
+46,DISTRICT OF COLUMBIA,Washington Post  ,Examiner     same as San Francisco Examiner
+47,DISTRICT OF COLUMBIA,,Washington Times  
+48,FLORIDA,Daytona Beach NewsJournal  ,Bradenton Herald
+49,FLORIDA,Florida Today Brevard County  ,Cape Coral Daily Breeze
+50,FLORIDA,Gainesville Sun  ,Palatka Daily News
+51,FLORIDA,Lakeland Ledger  ,Tampa Tribune  
+52,FLORIDA,Miami Herald  ,Winter Haven News Chief
+53,FLORIDA,Naples Daily News  ,
+54,FLORIDA,Orlando Sentinel  ,
+55,FLORIDA,Palm Beach Post  ,
+56,FLORIDA,Pensacola News Journal  ,
+57,FLORIDA,Sarasota HeraldTribune  ,
+58,FLORIDA,South Florida SunSentinel Fort Lauderdale  ,
+59,FLORIDA,St Petersburg Times  ,
+60,GEORGIA,Atlanta JournalConstitution  ,The Albany Herald  
+61,GEORGIA,Columbus LedgerEnquirer  ,Augusta Chronicle
+62,GEORGIA,Macon Telegraph,Marietta Daily Journal  
+63,GEORGIA,,Savannah Morning News  
+64,GEORGIA,,Thomasville Times Enterprise
+65,HAWAII,Honolulu StarBulletin,
+66,IDAHO,Idaho Statesman  ,Twin Falls TimesNews
+67,ILLINOIS,Daily Herald Arlington Heights  ,ChampaignUrbana NewsGazette  
+68,ILLINOIS,Bloomington Pantagraph  ,Dekalb Daily Chronicle
+69,ILLINOIS,Chicago Tribune  ,Kane County Chronicle    Shaw
+70,ILLINOIS,Chicago Sun Times  ,Morris Daily Herald
+71,ILLINOIS,Decatur Herald  Review  ,Northwest Herald Crystal Lake   Shaw
+72,ILLINOIS,Peoria Journal Star,The Southern Illinoisan Carbondale
+73,ILLINOIS,Rockford Register Star  ,Sauk Valley Telegraph and Daily Gazette
+74,ILLINOIS,Southtown Star Tinley Park  ,
+75,INDIANA,Daily Journal Franklin,The NewsSentinel Fort Wayne  
+76,INDIANA,The Herald Bulletin Anderson,Northwest Indiana Times Munster  
+77,INDIANA,Journal Gazette Fort Wayne  ,
+78,INDIANA,Lafayette Journal and Courier  ,
+79,INDIANA,Muncie Star Press  ,
+80,INDIANA,PostTribune Merrillville,
+81,INDIANA,Richmond PalladiumItem  ,
+82,IOWA,Des Moines Register  ,The Gazette Cedar Rapids  
+83,IOWA,Globe Gazette Mason City  ,Creston News Advertiser    Shaw
+84,IOWA,The Hawk Eye Burlington  ,Fort Dodge Messenger  
+85,IOWA,Iowa City PressCitizen  ,Marshalltown TimesRepublican 
+86,IOWA,Ottumwa Courier  ,Newton Daily News    Shaw
+87,IOWA,QuadCity Times Davenport  ,Sioux City Journal  
+88,IOWA,Storm Lake Times,
+89,KANSAS,The Hutchinson News,Lawrence JournalWorld  
+90,KENTUCKY,Lexington HeraldLeader  ,The AdvocateMessenger Danville
+91,KENTUCKY,Louisville CourierJournal  ,Ashland Daily Independent
+92,KENTUCKY,,Bowling Green Daily News
+93,LOUISIANA,TimesPicayune  ,Alexandria Town Talk
+94,LOUISIANA,The Times Shreveport,
+95,MAINE,Bangor Daily News  ,Lewiston Sun Journal  
+96,MAINE,Brunswick Times Record  ,
+97,MAINE,Kennebec Journal Augusta  and Morning Sentinel Waterville  ,
+98,MAINE,Portland Press HeraldMaine Sunday Telegram  ,
+99,MARYLAND,Baltimore Sun  ,Cecil Whig  
+100,MARYLAND,Daily Times Salisbury,
+101,MARYLAND,The Star Democrat Easton,
+102,MASSACHUSETTS,Berkshire Eagle  ,Boston Herald  
+103,MASSACHUSETTS,Boston Globe  ,The EagleTribune Lawrence  
+104,MASSACHUSETTS,Cape Cod Times,Lowell Sun  
+105,MASSACHUSETTS,Daily Hampshire Gazette Northampton,Springfield Republican  
+106,MASSACHUSETTS,The Daily News of Newburyport,
+107,MASSACHUSETTS,The Enterprise Brockton,
+108,MASSACHUSETTS,Fitchburg Sentinle and Enterprise,
+109,MASSACHUSETTS,Marthas Vineyard Times,
+110,MASSACHUSETTS,Metrowest Daily News Framingham,
+111,MASSACHUSETTS,The Salem News,
+112,MASSACHUSETTS,Worchester Telegram and Gazette,
+113,MICHIGAN,Battle Creek Enquirer  ,Detroit News  
+114,MICHIGAN,Bay City Times  ,The Daily Mining Gazette Houghton   Ogden 
+115,MICHIGAN,Detroit Free Press  ,Escanaba Daily Press
+116,MICHIGAN,Lansing State Journal  ,Grand Rapids Press 
+117,MICHIGAN,Livingston Daily  ,Jackson Citizen Patriot
+118,MICHIGAN,Muskegon Chronicle  ,Macomb Daily
+119,MICHIGAN,Saginaw News  ,The Mining Journal Marquette
+120,MICHIGAN,,The Oakland Press Pontiac
+121,MINNESOTA,Albert Lea Tribune,Bemidji Pioneer  
+122,MINNESOTA,Rochester PostBulletin  ,Duluth News Tribune  
+123,MINNESOTA,Star Tribune  ,The Journal New Ulm     Ogden 
+124,MINNESOTA,St Cloud Times  ,West Central Tribune Willmar  
+125,MINNESOTA,Winona Daily News ,Worthington Daily Globe  
+126,MINNESOTA,,Red Wing Republican Eagle  
+127,MINNESOTA,,International Falls Daily Journal  
+128,MISSISSIPPI,The Commercial Dispatch Columbus,Vicksburg Post  
+129,MISSISSIPPI,The ClarionLedger Jackson,
+130,MISSOURI,Columbia DailyTribune  ,Jefferson City News Tribune
+131,MISSOURI,Joplin Globe  ,St Joseph NewsPress  
+132,MISSOURI,Kansas City Star  ,
+133,MISSOURI,St Louis PostDispatch  ,
+134,MONTANA,Billings Gazette  ,
+135,MONTANA,Montana Standard Butte,
+136,NEBRASKA,,Grand Island Independent  
+137,NEBRASKA,,Lincoln Journal Star  
+138,NEBRASKA,,McCook Daily Gazette
+139,NEBRASKA,,Omaha WorldHerald    
+140,NEVADA,Las Vegas Sun   ,Las Vegas ReviewJournal  
+141,NEVADA,Reno Gazette Journal   ,Elko Daily Free Press  
+142,NEVADA,The World   ,
+143,NEW HAMPSHIRE,Cabinet Press  ,Claremont Eagle Times  
+144,NEW HAMPSHIRE,Concord Monitor  ,Fosters Daily Democrat  
+145,NEW HAMPSHIRE,Conway Daily Sun  ,New Hampshire Union Leader  
+146,NEW HAMPSHIRE,Keene Sentinel  ,
+147,NEW HAMPSHIRE,Nashua Telegraph  ,
+148,NEW HAMPSHIRE,Portsmouth Herald  ,
+149,NEW HAMPSHIRE,Valley News  ,
+150,NEW JERSEY,Asbury Park Press Neptune  ,
+151,NEW JERSEY,Courier News Bridgewater  ,
+152,NEW JERSEY,CourierPost Cherry Hill  ,
+153,NEW JERSEY,Daily Journal Vineland  ,
+154,NEW JERSEY,The Daily Record Parsippany,
+155,NEW JERSEY,Home News Tribune  ,
+156,NEW JERSEY,The Record HackensackBergen County  ,
+157,NEW JERSEY,The StarLedger Newark  ,
+158,NEW JERSEY,Trenton Times  ,
+159,NEW MEXICO,Farmington Daily Times  ,Albuquerque Journal  
+160,NEW MEXICO,Las Cruces SunNews  ,Roswell Daily Record  
+161,NEW MEXICO,Santa Fe New Mexican  ,Silver City Daily Press
+162,NEW YORK,Albany Times Union  ,New York Post  
+163,NEW YORK,Buffalo News  ,
+164,NEW YORK,Daily News New York NY  ,
+165,NEW YORK,Daily Star Oneonta,
+166,NEW YORK,Democrat  Chronicle Rochester  ,
+167,NEW YORK,Journal News Rockland County  ,
+168,NEW YORK,New York Observer  ,
+169,NEW YORK,New York Times  ,
+170,NEW YORK,Newsday Long Island  ,
+171,NEW YORK,The PostStar Glens Falls,
+172,NEW YORK,Poughkeepsie Journal  ,
+173,NEW YORK,Syracuse PostStandard  ,
+174,NEW YORK,Watertown Daily Times  ,
+175,NEW YORK,El DiarioLa Prensa  ,
+176,NORTH CAROLINA,Asheville CitizenTimes  ,Hickory Daily Record
+177,NORTH CAROLINA,Charlotte Observer  ,WinstonSalem Journal  
+178,NORTH CAROLINA,The HeraldSun Durham  ,
+179,NORTH CAROLINA,Greenville Daily Reflector  ,
+180,NORTH CAROLINA,Raleigh News  Observer  ,
+181,NORTH CAROLINA,Wilmington StarNews  ,
+182,NORTH DAKOTA,,Bismark Tribune
+183,NORTH DAKOTA,,Fargo Forum  
+184,NORTH DAKOTA,,Grand Forks Herald
+185,NORTH DAKOTA,,Jamestown Sun
+186,NORTH DAKOTA,,Minot Daily News     Ogden 
+187,OHIO,Akron Beacon Journal  ,The Enquirer Cincinnati  
+188,OHIO,Bucyrus TelegraphForum  ,Columbus Dispatch  
+189,OHIO,The Repository Canton  ,The Courier Findlay  
+190,OHIO,The Plain Dealer Cleveland  ,The Marion Star
+191,OHIO,Dayton Daily News  ,The Morning Journal Lorain  
+192,OHIO,Mansfield News Journal  ,The NewsHerald Willougby
+193,OHIO,Toledo Blade  ,Steubenville HeraldStar    Ogden  Oct  Ogden 
+194,OHIO,Springfield NewsSun  ,Tiffin AdvertiserTribune     Ogden 
+195,OHIO,The Vindicator Youngstown  ,Warren Tribune Chronicle     Ogden 
+196,OHIO,The TimesReporter DoverNew Philadelphia  ,
+197,OHIO,Zanesville Times Recorder and Coshocton Tribune  ,
+198,OKLAHOMA,Muskogee Phoenix,Bartlesville ExaminerEnterprise
+199,OKLAHOMA,,Enid News  Eagle  
+200,OKLAHOMA,,The Oklahoman Oklahoma City  
+201,OKLAHOMA,,Tulsa World  
+202,OREGON,Corvallis Gazette Times,Albany DemocratHerald
+203,OREGON,East Oregonian Pendleton,Bend Bulletin
+204,OREGON,Mail Tribune Medford,Grants Pass Daily Courier
+205,OREGON,The NewsRegister Yamhill Valley  ,Ontario Argus Observer
+206,OREGON,The Oregonian Portland  ,
+207,OREGON,Salem StatesmanJournal  ,
+208,OREGON,The RegisterGuard Eugene  ,
+209,PENNSYLVANIA,Beaver County Times and Allegheny Times  ,Altoona Mirror  
+210,PENNSYLVANIA,Bucks County Courier Times Levittown,Chambersburg Public Opinion
+211,PENNSYLVANIA,Bucks County Intelligencer,Lancaster New Era  
+212,PENNSYLVANIA,The Citizens Voice WilkesBarre,Lewistown Sentinel     Ogden  Oct  Ogden 
+213,PENNSYLVANIA,The CourierExpress and TriCounty Sunday Dubois  ,TribuneReview Pittsburgh  
+214,PENNSYLVANIA,Delaware County Daily Times  ,TribuneDemocrat Johnstown
+215,PENNSYLVANIA,The ExpressTimes Lehigh ValleyEaston  ,Warren TimesObserver
+216,PENNSYLVANIA,Erie TimesNews  ,Williamsport SunGazette    Ogden 
+217,PENNSYLVANIA,Hazleton StandardSpeaker,
+218,PENNSYLVANIA,Lebanon Daily News,
+219,PENNSYLVANIA,PatriotNews Harrisburg  ,
+220,PENNSYLVANIA,Philadelphia Inquirer  ,
+221,PENNSYLVANIA,Philadelphia Daily News  ,
+222,PENNSYLVANIA,Pittsburgh Post Gazette  ,
+223,PENNSYLVANIA,Pocono Record  ,
+224,PENNSYLVANIA,The Mercury Pottstown  ,
+225,PENNSYLVANIA,Scranton TimesTribune  ,
+226,PENNSYLVANIA,The Daily Item Sunbury  ,
+227,PENNSYLVANIA,The Daily Review Towanda  ,
+228,PENNSYLVANIA,Times Leader WilkesBarre  ,
+229,PENNSYLVANIA,Uniontown HeraldStandard  ,
+230,PENNSYLVANIA,York Daily Record  ,
+231,RHODE ISLAND,Providence Journal  ,
+232,SOUTH CAROLINA,,The Greenville News  
+233,SOUTH CAROLINA,,The Item Sumter
+234,SOUTH CAROLINA,,The Post and Courier Charleston  
+235,SOUTH CAROLINA,,The State Columbia  
+236,SOUTH DAKOTA,,Mitchell Daily Republic
+237,SOUTH DAKOTA,,Rapid City Journal
+238,SOUTH DAKOTA,,Sioux Falls Argus Leader  
+239,TENNESSEE,Chattanooga Times,Chattanooga FreePress  
+240,TENNESSEE,The Commercial Appeal Memphis  ,Clarksville LeafChronicle
+241,TENNESSEE,The Tennessean Nashville  ,Jackson Sun  
+242,TENNESSEE,,Knoxville NewsSentinel  
+243,TEXAS,Austin AmericanStatesman  ,Amarillo GlobeNews  
+244,TEXAS,The Eagle BryanCollege Station  ,Beaumont Enterprise  
+245,TEXAS,Fort Worth StarTelegram  ,Conroe Courier
+246,TEXAS,Houston Chronicle  ,Corpus Christi Caller Times  
+247,TEXAS,Longview NewsJournal,Dallas Morning News  
+248,TEXAS,Lufkin Daily News  ,El Paso Times
+249,TEXAS,San Angelo StandardTimes,Galveston County Daily News  
+250,TEXAS,,Kerrville Daily Times  
+251,TEXAS,,Lubbock AvalancheJournal  
+252,TEXAS,,The HeraldZeitung New Braunfels  
+253,TEXAS,,Paris News
+254,TEXAS,,San Antonio ExpressNews  
+255,TEXAS,,Tyler Morning Telegraph  
+256,TEXAS,,Wichita Falls Times Record News  
+257,UTAH,Salt Lake Tribune  ,
+258,VERMONT,Bennington Banner,
+259,VERMONT,Brattlebore Reformer,
+260,VERMONT,Burlington FreePress  ,
+261,VIRGINIA,Staunton News Leader  ,Bristol Herald Courier  
+262,VIRGINIA,,Culpeper StarExponent
+263,VIRGINIA,,Danville Register  Bee  
+264,VIRGINIA,,Daily NewsRecord Harrisonburg
+265,VIRGINIA,,The Daily Progress Charlottesville
+266,VIRGINIA,,Lynchburg News  Advance  
+267,VIRGINIA,,Newport News Daily Press  
+268,VIRGINIA,,The NewsVirginian Waynesboro  
+269,VIRGINIA,,Richmond TimesDispatch  
+270,VIRGINIA,,Winchester Star  
+271,WASHINGTON,The Columbian Vancouver  ,Centralia Chronicle
+272,WASHINGTON,Daily World Aberdeen,SpokesmanReview Spokane  
+273,WASHINGTON,Kitsap Sun    interesting example shows divergent views,
+274,WASHINGTON,The Olympian  ,
+275,WASHINGTON,Seattle PostIntelligencer  ,
+276,WASHINGTON,Seattle Times  ,
+277,WASHINGTON,Tacoma News Tribune  ,
+278,WASHINGTON,TriCity Herald  ,
+279,WASHINGTON,Walla Walla UnionBulletin  ,
+280,WASHINGTON,Wenatchee World,
+281,WASHINGTON,Yakima HeraldRepublic  ,
+282,WEST VIRGINIA,Bluefield Daily Telegraph,Charleston Daily Mail
+283,WEST VIRGINIA,Charleston Gazette  ,The InterMountain Elkins
+284,WEST VIRGINIA,Times West Virginian Fairmont  ,Martinsburg Journal   Ogden 
+285,WEST VIRGINIA,HeraldDispatch Huntington  ,Parkersburg News and Sentinel    Ogden 
+286,WEST VIRGINIA,,Weirton Daily Times    Ogden  w slight modications
+287,WEST VIRGINIA,,Wheeling Intelligencer    Ogden 
+288,WEST VIRGINIA,,Wheeling NewsRegister
+289,WISCONSIN,The Capital Times  ,Beloit Daily News 
+290,WISCONSIN,Chippewa Herald  ,Daily Jefferson County Union Fort Atkinson 
+291,WISCONSIN,Kenosha News  ,Green Bay PressGazette  
+292,WISCONSIN,La Crosse Tribune  ,
+293,WISCONSIN,Marshfield News Herald  ,
+294,WISCONSIN,Milwaukee Journal Sentinel  ,
+295,WISCONSIN,Shawano Leader ,
+296,WISCONSIN,Sheboygan Press  ,
+297,WISCONSIN,Stevens Point Journal  ,
+298,WISCONSIN,Wausau Daily Herald  ,
+299,WISCONSIN,Wisconsin State Journal  ,
+300,WYOMING,Casper StarTribune  ,
