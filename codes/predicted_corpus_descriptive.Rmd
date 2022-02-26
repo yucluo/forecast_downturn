@@ -1,0 +1,254 @@
+---
+title: "Predicted Corpus Descriptive"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+libraries <- c("ldatuning",  "ggplot2", "dplyr", "rjson", "quanteda", "lubridate", "parallel", "tidytext", "stringi", "tidyr", "tibble",  "stringr", "gridExtra", "data.table", "scales", "tidyverse",  "tm", "topicmodels", "quanteda.textstats")
+lapply(libraries, require, character.only = TRUE)
+```
+
+## Get the Predicted Corpus
+```{r prediction}
+# prediction = read.csv("/Users/yuchenluo/Desktop/forecast_downturn/code_scripts/text_predictions_8-19-21.csv")
+# pos_id = prediction[prediction$prediction == 1, "id"]
+# pos_id_trans = gsub(".txt", "", pos_id)
+# # load meta data (use the small one that only contains newspapers and select magazines)
+# deduped.data  = fread("/Users/yuchenluo/Desktop/forecast_downturn/code_scripts/small_meta.csv") #fread is faster
+# deduped.data$trans_id = gsub("urn:contentItem:", "", deduped.data$ResultId)
+# # keep only positives
+# pos_meta = deduped.data[deduped.data$trans_id %in% pos_id_trans,]
+# 
+# # format the date
+# pos_meta$Date = gsub("^(.*?)T.*", "\\1", pos_meta$Date) # delete hours
+# pos_meta$Date = as.POSIXct(pos_meta$Date)
+# 
+# # 
+pos_meta  = read.csv("deduped_pos_meta_w_min.csv")
+pos_meta$Date = gsub("^(.*?)T.*", "\\1", pos_meta$Date) # delete hours
+pos_meta$Date = as.POSIXct(pos_meta$Date)
+```
+
+## Count Volumn of Results by Month
+
+```{r results}
+
+ggplot(pos_meta, aes(x = Date)) +
+    geom_histogram(color="black") +
+    theme_bw() + xlab(NULL) +
+    scale_x_datetime(breaks = date_breaks("1 months"),
+                    labels = date_format("%Y-%b"),
+                     limits = c(as.POSIXct("2007-01-01"),
+                                as.POSIXct("2009-12-31"))
+                    ) +
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+```
+
+## Count Volumn by Search Terms and Keywords
+
+```{r keywords}
+# load the text file to search keywords
+# all_text = read.csv("all_text.csv")
+# pos_text = all_text[all_text$id %in% pos_id, ]
+# pos_text$trans_id = pos_id_trans
+
+pos_text = read.csv("deduped_pos_text_w_min.csv")
+
+ggplot(pos_meta, aes(x = SearchTerm )) +
+    geom_histogram(color="black",stat="count") +
+    theme_bw() +
+    theme(axis.text.x = element_text(vjust = 0.5, hjust=1))
+
+  ## individualize the search terms
+  
+  pos_meta$keywords = ifelse(grepl('recession',pos_text$text, fixed = TRUE), "recession", ifelse(apply(sapply(c('market','downturn'), grepl, pos_text$text), 1, all), "market_downturn", ifelse(apply(sapply(c('economic','downturn'), grepl, pos_text$text), 1, all), "economic_downturn", 
+ifelse(grepl('slowdown', pos_text$text, fixed = TRUE), "slowdown", 
+       ifelse(apply(sapply(c('market','crisis'), grepl, pos_text$text), 1, all), "market_crisis", 
+      ifelse(apply(sapply(c('economic','crisis'), grepl, pos_text$text), 1, all), "market_crisis", NA)
+      )))))
+  
+
+  # Count of articles, by publication, by detailed search term
+ggplot(pos_meta, aes(x = keywords)) +
+    geom_histogram(color="black",stat="count") +
+    theme_bw() +
+    theme(axis.text.x = element_text(angle = 45,vjust = 0.5, hjust=0.5))
+
+# check NA docs
+write.csv(pos_text[as.character(pos_text$trans_id) %in% pos_meta[is.na(pos_meta$keywords),]$trans_id, "text"], "NA_keywords.csv")
+```
+
+## Count the Number of Words Over Time 
+
+```{r words, include=FALSE}
+# count
+pos_meta$WordLen = sapply(strsplit(pos_text$text, " "), length)
+
+```
+
+
+```{r word count over time}
+ggplot(pos_meta,aes(x=Date, y=WordLen)) + geom_point(colour = "grey") +
+    stat_summary(aes(y = WordLength,group=1, shape = "median"), fun.y=median, colour="red", size = 1, geom="smooth",group=1, show.legend = TRUE)   +      scale_shape_manual("", values=c("mean"="x")) +
+ coord_cartesian(ylim = c(0, 20000))
+
+```
+
+```{r words3}
+ggplot(pos_meta, aes(x = WordLen)) +
+    geom_histogram(binwidth = 100,color="black") +
+    xlim(c(0, 2000))
+ 
+```
+
+## Volume Over Time: Example Left-wing vs Right-wing media
+```{r Volume - NYT vs. National Review}
+ggplot(pos_meta %>% filter(SourceName %in% c("national review","new york times")) , aes(Date,colour = SourceName)) + geom_histogram(fill="transparent") + xlab(NULL) +
+    scale_x_datetime(breaks = date_breaks("1 months"),
+                    labels = date_format("%Y-%b"), 
+                     limits = c(as.POSIXct("2007-01-01"), 
+                                as.POSIXct("2009-12-31")) 
+                    ) + 
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+```
+
+## Volume Over Time:  Left-wing vs Right-wing media
+
+```{r Volume - Left vs Right}
+
+ # # create the preprocessed/same source name
+ #  #get rid of things inside ()
+ #  pos_meta$SourceName = gsub("\\s*\\([^\\)]+\\)","", pos_meta$SourceName) %>% tolower()
+ #  
+ #  # get rid of punctuations 
+ #  pos_meta$SourceName = gsub("[[:punct:]]", "", pos_meta$SourceName)
+ # 
+ #  # get rid of stop words
+ #  stopwords_regex = paste(stopwords('en'), collapse = '\\b|\\b')
+ #  stopwords_regex = paste0('\\b', stopwords_regex, '\\b')
+ #  
+ #  pos_meta$SourceName = gsub(stopwords_regex, "", pos_meta$SourceName) %>% trimws()
+ #  
+ #  # join rating
+ #  partisan = read.csv("matched_sources.csv")
+ #  colnames(partisan)[1] = "SourceName"
+ #  
+ #  pos_meta = left_join(pos_meta, partisan, by = "SourceName")
+ #  pos_meta$partisanship = as.character(pos_meta$partisanship)
+ #  
+  pos_meta_partisan = pos_meta[pos_meta$partisanship %in% c("C","D", "R"), ]
+  # make graph
+  pos_meta_partisan %>% 
+    group_by(partisanship,month=floor_date(Date, "month")) %>% 
+    summarise(count = n()) %>%
+  ggplot(aes(x = month, y= count, color = partisanship)) +
+    geom_point() + geom_line() +  scale_color_discrete(name = "Partisanship", labels = c("Center", "Dems", "Reps")) 
+
+  print(table(pos_meta_partisan$partisanship))
+
+```
+
+## Number of Unique Sources Each Month
+```{r Number of Uniq Sources}
+ggplot(pos_meta %>% select(SourceName,Date) %>% group_by(month = floor_date(Date, unit = "month")) %>% summarise(uniq_source= n_distinct(SourceName)), aes(x = month,y = uniq_source)) + 
+      scale_x_datetime(breaks = date_breaks("1 months"),
+                    labels = date_format("%Y-%b")
+                    ) +
+                      geom_bar(stat = 'identity') + xlab(NULL) + ylab("Number of Unique Sources") +
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+```
+
+## Number of Months Each Source Has 
+```{r months of sources} 
+ggplot(pos_meta %>% select(SourceName,Date) %>% mutate(month = floor_date(Date, unit = "month")) %>% group_by(SourceName) %>% summarise(months= n_distinct(month)), aes(x = SourceName, y = months)) +
+                      geom_bar(stat = "identity") + xlab(NULL) + ylab("Number of Unique Sources") +
+    theme(axis.text.x = element_blank())
+```
+
+## Histogram of Number of Months Sources Have
+```{r hist}
+ggplot(pos_meta %>% select(SourceName,Date) %>% mutate(month = floor_date(Date, unit = "month")) %>% group_by(SourceName) %>% summarise(months= n_distinct(month)), aes(x = months)) +
+                      geom_histogram(binwidth = 10,color="black") + xlab("Number of Months Sources Have") + ylab("Number of Sources") 
+
+pos_meta %>% select(SourceName,Date) %>% mutate(month = floor_date(Date, unit = "month")) %>% group_by(SourceName) %>% summarise(months= n_distinct(month))
+```
+
+```{r save data, include= FALSE}
+write.csv(pos_meta, "positive_meta.csv")
+write.csv(pos_meta_partisan, "positive_meta_partisan.csv")
+```
+
+```{r topic model}
+# create corpus object and DTM
+# corpus = corpus(pos_text, docid_field = "id", text_field = "text")
+# DT_dfm <-dfm(corpus, stem = T, remove_punct = T, tolower = T, remove_twitter = T, remove_numbers = TRUE, remove = c(stopwords("english"))) %>%
+#   dfm_trim(min_termfreq = 100)
+# 
+# system.time(
+#   lda <- LDA(DT_dfm, k = 15, method = "Gibbs",  control = list(seed = 1234, iter = 1000)))
+# 
+# terms_table = data.frame(get_terms(lda, k = 15))
+# print(get_terms(lda, k = 15))
+# write_csv(terms_table, "topic_terms_predicted.csv")
+terms_table = read.csv("topic_terms_predicted.csv")
+terms_table%>% tbl_df %>% rmarkdown::paged_table()
+
+
+```
+
+```{r remove duplicates,include=FALSE, eval=FALSE}
+
+sim = textstat_simil(DT_dfm, margin = "documents",method = "cosine", min_simil = 0.9)
+# cosinemat <- as.matrix(sim)
+# sim_pair_names <- t(combn(docnames(DT_dfm), 2))
+# sim_pairs <- data.frame(sim_pair_names,
+#                         sim = as.numeric(sim), 
+#                         stringsAsFactors = FALSE)
+# 
+# todrop <- subset(sim_pairs, select = X1, subset = sim > 0.9, drop = TRUE)
+# todrop
+matrix2list <- function(x) {
+  names(x@x) <- rownames(x)[x@i + 1]
+  split(x@x, factor(x@j + 1, levels = seq(ncol(x)), labels = colnames(x)))
+}
+simil <- matrix2list(sim)
+head(simil[lengths(simil) > 1])
+
+dim(simil[lengths(simil) > 1])
+
+write.csv(simil[lengths(simil) > 1], "similar_dupes.csv")
+
+dupes = simil[lengths(simil) > 1]
+
+# transform into data frame
+dupes_df = data.frame(names(unlist(dupes))) # keep only names cuz values don't matter
+dupes_df$both = dupes_df$names.unlist.dupes..
+dupes_df$names.unlist.dupes.. = NULL
+
+# remove exact duplicate (duplicate with the same doc)
+dupes_df = dupes_df %>%
+  separate(col = both, into = c("first", "second"), sep = 33) %>%
+  mutate(first =substr(first,1,nchar(first)-1) ) %>%
+  filter(!(first == second))
+
+# remove pair-wise duplicates 
+for (i in 1:nrow(dupes_df)){
+    dupes_df[i, ] = sort(dupes_df[i, ])
+}
+dupes_df = dupes_df[!duplicated(dupes_df),]
+
+dupes_df$first = gsub(".txt","",dupes_df$first)
+# save
+write.csv(dupes_df, "dupes_df.csv")
+
+dupes_df = read.csv("dupes_df.csv")
+
+# remove dupes from the meta and text data
+deduped_pos_meta = pos_meta[!(pos_meta$trans_id %in% dupes_df$first),]
+deduped_pos_text = pos_text[!(pos_text$trans_id %in% dupes_df$first),]
+# remove articles too short
+deduped_pos_meta = deduped_pos_meta[sapply(strsplit(deduped_pos_text$text, " "), length) > 50, ]
+
+```
